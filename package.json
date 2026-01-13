@@ -3,6 +3,10 @@
   "displayName": "extester-code-generator-example",
   "description": "Example project for extester-code-generator testing.",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pospisilf/extester-code-generator-example.git"
+  },
   "engines": {
     "vscode": "^1.99.0"
   },
@@ -23,7 +27,7 @@
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
-    "compile": "npm run check-types && npm run lint && node esbuild.js",
+    "compile": "npm run check-types && npm run lint && node esbuild.js && npm run compile-tests",
     "watch": "npm-run-all -p watch:*",
     "watch:esbuild": "node esbuild.js --watch",
     "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
@@ -33,12 +37,13 @@
     "pretest": "npm run compile-tests && npm run compile && npm run lint",
     "check-types": "tsc --noEmit",
     "lint": "eslint src",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "ui-test": "npm run compile && extest setup-and-run ./out/ui-test/*.test.js --uninstall_extension --extensions_dir .test-extensions"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.10",
     "@types/node": "22.x",
-    "@types/vscode": "^1.108.1",
+    "@types/vscode": "^1.99.0",
     "@typescript-eslint/eslint-plugin": "^8.45.0",
     "@typescript-eslint/parser": "^8.45.0",
     "@vscode/test-cli": "^0.0.11",
