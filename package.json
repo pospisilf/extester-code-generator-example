@@ -4,18 +4,20 @@
   "description": "Example project for extester-code-generator testing.",
   "version": "0.0.1",
   "engines": {
-    "vscode": "^1.108.1"
+    "vscode": "^1.99.0"
   },
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
         "command": "extester-code-generator-example.helloWorld",
-        "title": "Hello World"
+        "title": "Hello World from extester-code-generator-example"
       }
     ]
   },
